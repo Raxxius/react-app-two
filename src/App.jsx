@@ -5,7 +5,16 @@ import './App.css'
 
 const App = () => {
   const [currentColorIndex, setCurrentColorIndex] = useState(0);
-  const colors = ['red', 'blue', 'green', 'yellow'];
+  const [colours, setColours] = useState("")
+
+  console.log("App two session storage is " + sessionStorage)
+
+  useEffect(() => {
+    // Fetch colors from sessionStorage on component mount
+    const storedColors = sessionStorage.coloursTable;
+    setColors(storedColors);
+    console.log(storedColors)
+  }, []);
 
   const handleNextColor = () => {
     const nextIndex = (currentColorIndex + 1) % colors.length;
@@ -16,12 +25,14 @@ const App = () => {
   const handlePrevColor = () => {
     const prevIndex = (currentColorIndex - 1 + colors.length) % colors.length;
     setCurrentColorIndex(prevIndex);
+
     updateSessionStorage(colors[prevIndex]);
   };
 
   const updateSessionStorage = (newColor) => {
     sessionStorage.setItem('currentColour', newColor);
   };
+
 
   return (
     <div>
