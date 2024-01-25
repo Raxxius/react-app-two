@@ -15,8 +15,8 @@ const App = () => {
   }, []);
 
   const handleNextColor = () => {
-    const nextIndex = (currentColorIndex + 1) % colours.length;
-    setCurrentColorIndex(nextIndex);
+    const nextIndex = (currentColourIndex + 1) % colours.length;
+    setCurrentColourIndex(nextIndex);
     updateSessionStorage(colours[nextIndex]);
   };
 
