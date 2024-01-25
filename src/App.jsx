@@ -2,33 +2,33 @@ import { useState, useEffect } from 'react'
 import './App.css'
 
 const App = () => {
-  const [currentColorIndex, setCurrentColorIndex] = useState(0);
+  const [currentColourIndex, setCurrentColourIndex] = useState(0);
   const [colours, setColours] = useState("")
 
   console.log("App two session storage is " + sessionStorage)
 
   useEffect(() => {
     // Fetch colors from sessionStorage on component mount
-    const storedColors = sessionStorage.coloursTable;
-    setColors(storedColors);
-    console.log(storedColors)
+    const storedColours = sessionStorage.coloursTable;
+    setColours(storedColours);
+    console.log(storedColours)
   }, []);
 
   const handleNextColor = () => {
-    const nextIndex = (currentColorIndex + 1) % colors.length;
+    const nextIndex = (currentColorIndex + 1) % colours.length;
     setCurrentColorIndex(nextIndex);
-    updateSessionStorage(colors[nextIndex]);
+    updateSessionStorage(colours[nextIndex]);
   };
 
   const handlePrevColor = () => {
-    const prevIndex = (currentColorIndex - 1 + colors.length) % colors.length;
-    setCurrentColorIndex(prevIndex);
+    const prevIndex = (currentColourIndex - 1 + colours.length) % colours.length;
+    setCurrentColourIndex(prevIndex);
 
-    updateSessionStorage(colors[prevIndex]);
+    updateSessionStorage(colours[prevIndex]);
   };
 
-  const updateSessionStorage = (newColor) => {
-    sessionStorage.setItem('currentColour', newColor);
+  const updateSessionStorage = (newColour) => {
+    sessionStorage.setItem('currentColour', newColour);
   };
 
 
