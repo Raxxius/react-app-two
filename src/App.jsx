@@ -34,8 +34,7 @@ const App = () => {
 
   return (
     <div>
-      <button onClick={handlePrevColor}>Previous Color</button>
-      <button onClick={handleNextColor}>Next Color</button>
+        <h2>App2</h2>
     </div>
   );
 };
